@@ -1,50 +1,49 @@
-import java.util.*;
-
-class linkedlist_endinsert{
-    class Node{
-    int data;
-    Node next;
-    Node(int d){
-        data =d;
-        next=null;
+  import java.util.*;
+class linkedlist_beginsert
+{   
+    class Node
+    {
+        int data;
+        Node next;
+        Node(int d)
+        {
+            data=d;
+            next=null;
+        }
     }
+    Node head;
+    public void insert(int el)
+    {   Node ele =new Node(el);
+        if(head==null)
+        {
+            head=ele;
+        }
+        else
+        { 
+              ele.next=head;
+              head=ele;
+        }
     }
-    public Node head =null;
-   public void insert(int d){
-      Node ele =new Node(d);
-      if(head==null){
-      head =ele;
-      }
-      else{
-          Node last =head;
-          while(last.next!=null){
-              last=last.next;
-          }
-          last.next=ele;
-      }
-
-   }
-   public void view(){
-      Node curr =head;
-      if(curr==null){
-          System.out.print("empty");
-      }
-      else{System.out.println("elements are:");
-          while(curr !=null){
-              System.out.print(curr.data+ " ");
-              curr=curr.next;
-          }
-      }
-   }
-    public static void main(String args[]){
+    public void disp()
+    {   System.out.println("elements in linked list:");
+        Node curr=head;
+        while(curr.next!=null)
+        {
+            System.out.print(curr.data+" ");
+            curr=curr.next;
+        }System.out.println(curr.data);
+    }
+    public static void main(String args[])
+    {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        linkedlist_endinsert in =new linkedlist_endinsert();
-        for(int i=0;i<n;i++){
-          int ele=sc.nextInt();
-          in.view(ele);
+        linkedlist_beginsert on= new linkedlist_beginsert();
+        for(int i=0;i<n;i++)
+        {
+            int e=sc.nextInt();
+            on.insert(e);
         }
         sc.close();
-        in.disp();
+        on.disp();
     }
 }
