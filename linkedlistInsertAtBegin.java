@@ -1,30 +1,8 @@
   import java.util.*;
 class linkedlist_beginsert
 {   
-    class Node
-    {
-        int data;
-        Node next;
-        Node(int d)
-        {
-            data=d;
-            next=null;
-        }
-    }
-    Node head;
-    public void insert(int el)
-    {   Node ele =new Node(el);
-        if(head==null)
-        {
-            head=ele;
-        }
-        else
-        { 
-              ele.next=head;
-              head=ele;
-        }
-    }
-    public void disp()
+       Node head;
+       public void disp()
     {   System.out.println("elements in linked list:");
         Node curr=head;
         while(curr.next!=null)
@@ -46,4 +24,28 @@ class linkedlist_beginsert
         sc.close();
         on.disp();
     }
+   class Node
+    {
+        int data;
+        Node next;
+        Node(int d)
+        {
+            data=d;
+            next=null;
+        }
+    }
+
+   public void insert(int el)
+    {   Node ele =new Node(el);
+        if(head==null)
+        {
+            head=ele;
+        }
+        else
+        { 
+              ele.next=head;
+              head=ele;
+        }
+    }
+
 }
