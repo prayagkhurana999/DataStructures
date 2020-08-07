@@ -1,0 +1,45 @@
+class Stack{
+    int n=5;
+    int[] a=new int[n];
+    int  top=0;
+    public void push(int data)
+    {
+        a[top]=data;
+        top++;
+    }
+    public void display()
+    {
+        for(int i : a)
+        {
+            System.out.print(i+" ");
+        }
+    }
+    public int pop()
+    {
+        int data;
+        top--;
+        data=a[top];
+        a[top]=0;
+        return data;
+    }
+    public int peek()
+    {
+        int data=a[top-1];
+        return data;
+    }
+    
+}
+class Main{
+    public static void main(String args[])
+    {
+        Stack s=new Stack();
+        s.push(1);
+        s.push(2);
+        s.push(3);
+        s.push(4);
+        s.push(5);
+        s.pop();
+        System.out.println(s.peek());
+        s.display();
+    }
+}
