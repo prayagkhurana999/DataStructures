@@ -1,0 +1,85 @@
+class Stacks { 
+    int n=5; 
+    int top1=-1;
+    int top2=n; 
+    int a[]=new int[n];
+    void push1(int data) 
+    { 
+        if (top1 < top2) 
+        { 
+            top1++; 
+            a[top1] =data;
+            
+        } 
+        else { 
+            System.out.println("Stack Overflow"); 
+            System.exit(1); 
+        } 
+    } 
+    void push2(int data) 
+    { 
+        if (top1 < top2 ) { 
+            top2--;
+            a[top2] = data;
+             
+        } 
+        else { 
+            System.out.println("Stack Overflow"); 
+            System.exit(1); 
+        } 
+    } 
+    int pop1() 
+    { 
+        
+        if (top1 >= 0) { 
+            int data = a[top1];
+            a[top1]=0;
+            top1--;
+            
+             
+            return data; 
+        } 
+        else { 
+            System.out.println("Stack Underflow"); 
+            System.exit(1); 
+        } 
+        return 0; 
+    } 
+    int pop2() 
+    { 
+         
+        if (top2 < size) { 
+            int data = a[top2];
+            a[top1]=0;
+        top2++;    
+            return data; 
+        } 
+        else { 
+            System.out.println("Stack Underflow"); 
+            System.exit(1); 
+        } 
+        return 0; 
+    }
+    public void show()
+    {
+        for(int i:a)
+        {
+            System.out.println(i+" ");
+        }
+    }
+}
+class Main{
+      public static void main(String args[]) 
+    { 
+        Stacks s = new Stacks();
+        s.push1(10);
+        s.push1(20);
+        s.push1(30);
+        s.push2(50);
+        s.push2(40);
+        System.out.println(s.pop1());
+        s.show();
+       
+        
+    } 
+} 
