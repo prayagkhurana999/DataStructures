@@ -1,0 +1,65 @@
+import java.util.Scanner;
+class doublylinkedlist
+{   class Node
+    {
+        int data;
+        Node next;
+        Node prev;
+        Node(int data)
+        {
+            this.data=data;
+            next=null;
+            prev=null;
+        }
+    }
+    Node head;
+    public void insert(int data)
+    {   Node d =new Node(data);
+         if(head==null)
+         {
+             head=d;
+             d.prev=null;
+         }
+         else{
+               Node curr=head;
+               while(curr.next!=null)
+               {
+                   curr=curr.next;
+               }
+               curr.next=d;
+               d.prev=curr;
+         }
+    }
+    public void show()
+    {
+        Node curr =head;
+        if(curr==null)
+        {
+            System.out.print("empty");
+        }
+        else{
+            
+            while(curr !=null)
+            {
+                System.out.print(curr.data+ " ");
+                curr=curr.next;
+            }
+            System.out.println();
+        }
+    }
+}
+class Main{
+    public static void main(String args[])
+ {
+   Scanner sc= new Scanner(System.in);
+   int n =sc.nextInt();
+   doublylinkedlist d =new doublylinkedlist();
+   for(int i=0;i<n;i++)
+   {
+           int a=sc.nextInt();
+           d.insert(a);
+   }
+   sc.close();
+   d.show();
+ }
+}
