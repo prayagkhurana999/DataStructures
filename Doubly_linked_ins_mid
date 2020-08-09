@@ -1,0 +1,87 @@
+import java.util.Scanner;
+
+class doublylinkedlist{
+    class Node
+    {
+        Node next;
+        Node prev;
+        int data;
+        Node(int data)
+        {
+            this.data=data;
+            next=null;
+            prev=null;
+        }
+    }
+    Node head;
+    public void mid(int d,int p)
+    {    int i=1;
+         Node ele =new Node(d);
+         Node curr=head;
+         while(i<p)
+         {
+             i++;
+             curr=curr.next;
+         }
+         ele.next=curr.next;
+         ele.prev=curr;
+         curr.next.prev=ele;
+         curr.next=ele;
+         
+    }
+    public void insert(int data)
+    {
+         Node ele=new Node(data);
+         if(head==null)
+         {
+           head=ele;
+           
+         }
+         else{
+            Node last =head;
+            while(last.next!=null)
+            {
+                last=last.next;
+            }
+            last.next=ele;
+            ele.prev=last;
+         }
+    }
+    public void show()
+   {
+      Node curr =head;
+      if(curr==null)
+      {
+          System.out.print("empty");
+      }
+      else{System.out.println("elements are:");
+          while(curr !=null)
+          {
+              System.out.print(curr.data+ " ");
+              curr=curr.next;
+          }
+          System.out.println();
+      }
+   }
+}
+class Main{
+    public static void main(String args[])
+    {
+        Scanner sc =new Scanner(System.in);
+        int n=sc.nextInt();
+        doublylinkedlist m =new doublylinkedlist();
+        for(int i=0; i<n;i++)
+        {
+            int e=sc.nextInt();
+            m.insert(e);
+        }
+        System.out.println("enter element to be inserted:");
+        int ele =sc.nextInt();
+        System.out.println("position:");
+        int pos=sc.nextInt();
+        
+        m.mid(ele,pos);
+        sc.close();
+        m.show();
+    }
+}
