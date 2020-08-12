@@ -1,0 +1,61 @@
+class linkedlist{
+    Node head;
+    int count=0;
+    class Node{
+        int data;
+        Node next;
+        Node(int data)
+        {
+            this.data=data;
+        }
+    }
+public void push(int data) 
+    { 
+        Node newnode = new Node(data); 
+        newnode.next = head;
+        head = newnode; 
+    } 
+    public void middle()
+    {
+        
+        Node c=head;
+        Node m=head;
+        while(c.next!=null)
+        {
+            count++;
+            c=c.next;
+            
+        }
+        
+        for(int i=0;i<count/2;i++)
+        {
+            m=m.next;
+        }
+        System.out.println(m.data+" is the data of middle");
+        
+    }
+    public void show() 
+    { 
+        Node x = head; 
+        while (x != null) 
+        { 
+            System.out.print(x.data+" "); 
+            x = x.next; 
+        }
+        System.out.println();
+    } 
+}
+class Main{
+    public static void main(String args[])
+    {
+        linkedlist l=new linkedlist();
+        l.push(1);
+        l.push(2);
+        l.push(3);
+        l.push(4);
+        l.push(5);
+        l.show();
+        l.middle();
+    
+    }
+}
